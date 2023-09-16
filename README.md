@@ -1,9 +1,11 @@
 # React + Vite
 
-name : online-ide
-version : 0.1.0
+<ul>
+  <li>name : online-ide</li>
+  <li>version : 0.1.0</li>
+</ul>
 
-<h4>This application is a simple Online IDE for Javascript and Python for right now</h4>
+<h4>Description : An Online IDE to execute Javascript and Python code</h4>
 
 <h3>Tech Stack :</h3>
 <ul>
