@@ -1,8 +1,16 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+name : online-ide
+version : 0.1.0
 
-Currently, two official plugins are available:
+<h4>This application is a simple Online IDE for Javascript and Python for right now</h4>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<h3>Tech Stack :</h3>
+<ul>
+  <li>Vite</li>
+  <li>React 18</li>
+  <li>Node 18</li>
+  <li>Express JS</li>
+</ul>
+
+
