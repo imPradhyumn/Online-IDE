@@ -5,12 +5,13 @@ import axios from "axios";
 
 function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   const [codeValue, setCodeValue] = useState("");
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const setCommentedCode = () => {
     let value;
-    if (chosenLanguage == "python")
+    if (chosenLanguage === "python")
       value = "#Write your code below and Execute!! Happy Coding :)";
-    else if (chosenLanguage == "javascript")
+    else if (chosenLanguage === "javascript")
       value =
         "//For JS, script will run as you type, for other languages press Execute";
     else value = "//Write your code below and Execute!! Happy Coding :)";
@@ -22,17 +23,18 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   }, [chosenLanguage]);
 
   async function executeCode() {
+    setIsDisabled(true);
     axios
-      .post("https://online-ide-server.azurewebsites.net", {
+      .post("https://online-ide-server-4bvl.onrender.com", {
         data: { code: codeValue, chosenLanguage, userInputs },
       })
       .then((res) => {
-        console.log("Hello", res.data);
         const data = res.data;
         if (data.stdout) setCodeOutput(data.stdout);
         else if (data.stderr) setCodeOutput(data.stderr);
+        setIsDisabled(false);
       })
-      .catch((err) => setCodeOutput(err));
+      .catch((err) => {setCodeOutput(err); setIsDisabled(false)});
   }
 
   useEffect(() => {
@@ -55,7 +57,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
           setCodeValue(value);
         }}
       />
-      <button id="execute-btn" onClick={executeCode}>
+      <button disabled={isDisabled === true} id="execute-btn" onClick={executeCode}>
         Execute
       </button>
     </div>
