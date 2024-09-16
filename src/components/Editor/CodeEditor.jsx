@@ -23,7 +23,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
 
   async function executeCode() {
     axios
-      .post("http://localhost:3000", {
+      .post("https://online-ide-server.azurewebsites.net", {
         data: { code: codeValue, chosenLanguage, userInputs },
       })
       .then((res) => {
