@@ -7,11 +7,22 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   const [codeValue, setCodeValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
+  function prefillJavaCode() {
+    const code = `public class Demo {
+    public static void main(String[] args) {
+        System.out.println("Hello");
+    }
+  }`
+    return code;
+  }
+
   const setCommentedCode = () => {
     let value;
-    if (chosenLanguage === "python")
-      value = "#Write your code below and Execute!! Happy Coding :)";
-    else value = "//Write your code below and Execute!! Happy Coding :)";
+    if (chosenLanguage === 'java')
+      value = prefillJavaCode();
+    else if (chosenLanguage === "python")
+      value = "print(Hello World)";
+    else value = "//Happy Coding:)";
     setCodeValue(value);
   };
 
@@ -23,7 +34,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
     setIsDisabled(true);
     axios
       .post("https://online-ide-server-4bvl.onrender.com", {
-        data: { code: codeValue, chosenLanguage, userInputs },
+        data: { code: codeValue, chosenLanguage: 'java', userInputs },
       })
       .then((res) => {
         const data = res.data;
@@ -31,7 +42,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
         else if (data.stderr) setCodeOutput(data.stderr);
         setIsDisabled(false);
       })
-      .catch((err) => {setCodeOutput(err); setIsDisabled(false)});
+      .catch((err) => { setCodeOutput(err); setIsDisabled(false) });
   }
 
   // useEffect(() => {
