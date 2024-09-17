@@ -1,12 +1,12 @@
 #editor-container {
-  width: 70%;
+  width: 92%;
   margin: 0 1rem;
   height: 90%;
 }
 
 @media screen and (width<=500px) {
   #editor-container {
-    height:50%;
-    width:90%;
+    height:500px;
+    width:100%;
   }
 }

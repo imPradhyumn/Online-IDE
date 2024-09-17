@@ -51,7 +51,7 @@ function Home() {
         </div>
       </div>
       <footer style={{ margin: "0.5rem auto", width: "fit-content" }}>
-        Made by Pradhyumn Sharma with React + ExpressJS
+        By Pradhyumn Sharma with React + ExpressJS
       </footer>
     </>
   );

@@ -45,8 +45,8 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   return (
     <div id="editor-container">
       <Editor
-        width="135%"
-        height="calc(100vh - 107px)"
+        width="100%"
+        height="100%"
         language={chosenLanguage}
         theme="vs-dark"
         value={codeValue}
