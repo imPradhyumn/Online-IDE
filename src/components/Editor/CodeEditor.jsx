@@ -11,9 +11,6 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
     let value;
     if (chosenLanguage === "python")
       value = "#Write your code below and Execute!! Happy Coding :)";
-    else if (chosenLanguage === "javascript")
-      value =
-        "//For JS, script will run as you type, for other languages press Execute";
     else value = "//Write your code below and Execute!! Happy Coding :)";
     setCodeValue(value);
   };
@@ -37,13 +34,13 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
       .catch((err) => {setCodeOutput(err); setIsDisabled(false)});
   }
 
-  useEffect(() => {
-    if (chosenLanguage != "javascript") return;
-    const getOutput = setTimeout(() => {
-      executeCode();
-    }, 500);
-    return () => clearTimeout(getOutput);
-  }, [codeValue]);
+  // useEffect(() => {
+  //   if (chosenLanguage !== "javascript") return;
+  //   const getOutput = setTimeout(() => {
+  //     executeCode();
+  //   }, 500);
+  //   return () => clearTimeout(getOutput);
+  // }, [codeValue]);
 
   return (
     <div id="editor-container">
