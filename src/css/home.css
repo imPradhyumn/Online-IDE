@@ -25,7 +25,7 @@
   gap: 0.3rem;
 }
 
-#execute-btn {
+.execute-btn {
   position: absolute;
   z-index: 99;
   left: 45px;
@@ -38,6 +38,7 @@
   letter-spacing: 1px;
   outline: none;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
 @media screen and (max-width: 500px) {

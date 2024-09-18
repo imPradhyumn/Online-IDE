@@ -7,20 +7,18 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   const [codeValue, setCodeValue] = useState("");
   const [isDisabled, setIsDisabled] = useState(false);
 
-  function prefillJavaCode() {
-    const code = `public class Demo {
-    public static void main(String[] args) {
-        System.out.println("Hello");
-    }
-  }`
-    return code;
-  }
+  // function prefillJavaCode() {
+  //   const code = `public class Demo {
+  //   public static void main(String[] args) {
+  //       System.out.println("Hello");
+  //   }
+  // }`
+  //   return code;
+  // }
 
   const setCommentedCode = () => {
     let value;
-    if (chosenLanguage === 'java')
-      value = prefillJavaCode();
-    else if (chosenLanguage === "python")
+    if (chosenLanguage === "python")
       value = "print(Hello World)";
     else value = "//Happy Coding:)";
     setCodeValue(value);
@@ -34,7 +32,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
     setIsDisabled(true);
     axios
       .post("https://online-ide-server-4bvl.onrender.com", {
-        data: { code: codeValue, chosenLanguage: 'java', userInputs },
+        data: { code: codeValue, chosenLanguage, userInputs },
       })
       .then((res) => {
         const data = res.data;
@@ -65,9 +63,13 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
           setCodeValue(value);
         }}
       />
-      <button disabled={isDisabled === true} id="execute-btn" onClick={executeCode}>
-        Execute
+      {isDisabled ? <button className="execute-btn">
+        Executing...
       </button>
+        : <button className="execute-btn" onClick={executeCode}>
+          Execute
+        </button>
+      }
     </div>
   );
 }

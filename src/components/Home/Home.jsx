@@ -9,7 +9,6 @@ function Home() {
   const options = [
     { value: "javascript", label: "Javascript (Node 18)" },
     { value: "python", label: "Python" },
-    { value: "java", label: "Java" },
   ];
 
   const [chosenLanguage, setChosenLanguage] = useState(options[0].value);
