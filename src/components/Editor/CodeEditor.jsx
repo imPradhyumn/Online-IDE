@@ -19,7 +19,7 @@ function CodeEditor({ setCodeOutput, chosenLanguage, userInputs }) {
   const setCommentedCode = () => {
     let value;
     if (chosenLanguage === "python")
-      value = "print(Hello World)";
+      value = "print('Hello World')";
     else value = "//Happy Coding:)";
     setCodeValue(value);
   };
